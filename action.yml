@@ -39,10 +39,10 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - uses: cloudposse/github-action-yaml-config-query@0.1.3
+    - uses: cloudposse/github-action-yaml-config-query@v1.0.1
       id: context
       with:
-        query: .${{ inputs.image_name == '' }}
+        query: '."${{ inputs.image_name == '''' }}"'
         config: |-
           true:
             image : ${{ inputs.registry }}/${{ inputs.organization }}/${{ inputs.repository }}
